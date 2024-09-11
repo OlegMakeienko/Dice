@@ -16,7 +16,19 @@ private:
     int value;
 
 public:
-    Dice(int s = 6) : sides(s), value(1) {
+    Dice(int s = 6) : sides(s), value(1) {  //initializer list
+
+/*
+        *Initialisering vs. Tilldelning:
+
+        Initialisering: När en variabel initialiseras, skapas den direkt med ett specifikt värde.
+            Till exempel, för variabeln name skapas ett std::string-objekt direkt med det önskade värdet.
+        Tilldelning: Om vi istället tilldelar ett värde till variabeln i konstruktorns kropp
+            (t.ex. name = playerName;), skapas först en standardinstans av name,
+            och sedan tilldelas det nya värdet. Detta kan leda till extra arbete och onödiga kostnader.
+ */
+
+
         srand(time(nullptr)); //initialisation random point
     }
 
