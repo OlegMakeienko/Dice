@@ -4,7 +4,7 @@
 
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <iostream>
+#include <vector>
 
 #include "Dice.h"
 using namespace std;
@@ -13,36 +13,23 @@ using namespace std;
 class Player {
 private:
     string name;
-    Dice dice[3];
-    int diceNumber;
+    int score;
+    vector<Dice> dice;
 
 public:
-    Player(const string& playerName) : name(playerName), diceNumber(0) {};
+    Player(const string& playerName);
 
-    string getPlayerName() const { //för att kunna cout playerName
-        return name;
-    }
+    void rollDice();
 
-    void rollDice() {
-        for (int i = 0; i < diceNumber; ++i) {
-            dice[i].roll();
-        }
-    }
-    int getTotalValue() const {
-        int totalValue = 0;
-        for (int i = 0; i < diceNumber; ++i) {
-            totalValue += dice[i].getValue();
-        }
-        return totalValue;
-    }
+    int getTotalValue() const;
 
-    void addDie(int sides) {
-        if (diceNumber < 3) {
-            dice[diceNumber] = Dice(sides);
-            diceNumber++;
-        }
-    }
+    void increaseScore();
 
+    void addDie(int sides);
+
+    string getPlayerName() const;
+
+    int getScore() const;
 };
 
 
