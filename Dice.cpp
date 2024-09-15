@@ -5,8 +5,8 @@
 #include "Dice.h"
 #include <cstdlib>
 
-Dice::Dice(int s) {
-     sides(s), value(1);   //initializer list
+Dice::Dice(int s) :
+     sides(s), value(1) {  //initializer list
 
         /*
                 *Initialisering vs. Tilldelning:

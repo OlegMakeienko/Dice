@@ -12,8 +12,8 @@ using namespace std;
 
 class Dice {
 private:
-    int sides{};
-    int value{};
+    int sides;
+    int value;
 
 public:
     Dice(int s = 6);
