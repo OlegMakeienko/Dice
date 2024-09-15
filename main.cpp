@@ -1,23 +1,28 @@
 #include <iostream>
 #include "Dice.h"
+#include "Game.h"
 #include "Player.h"
 
 using namespace std;
 
-int main()
-{
+int main() {
+    vector<Player> players;
+    Game game;
+
+    game.initialize(players);
+    game.takeTurn(players);
+
+    vector<Player> winners = game.getWinners(players);
+
+    cout << "Winner is :";
+    for (const Player& winner : winners) {
+        cout << winner.getPlayerName() << " ";
+    }
+    cout << endl;
+
     // Dice dice(6);
     // dice.roll();
     // cout << dice.getValue() << endl;
-
-    Player player("Johan");
-    player.addDie(6);
-    player.addDie(6);
-    player.addDie(6);
-
-    player.rollDice();
-
-    cout << player.getPlayerName() << " rolled a total value of: " << player.getTotalValue() << endl;
 
     return 0;
 }
